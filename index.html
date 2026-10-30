@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CARRIÈRE PRO - Votre avenir professionnel</title>
+
+    <meta name="description" content="Créez vos CV professionnels, lettres de motivation et demandes d'emploi avec CARRIÈRE PRO.">
+
+    <!-- Configuration Android et PWA -->
+    <link rel="manifest" href="/statique/manifest.json">
+    <meta name="theme-color" content="#123b66">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Carrière Pro">
 
     <style>
         * {
@@ -36,10 +47,15 @@
             color: #d8ad52;
         }
 
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 20px;
             font-size: 14px;
         }
 
@@ -77,6 +93,7 @@
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
+            transition: 0.3s;
         }
 
         .button:hover {
@@ -109,6 +126,11 @@
             padding: 35px 25px;
             border-radius: 12px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
         }
 
         .card h3 {
@@ -140,15 +162,13 @@
             margin-top: 40px;
         }
 
-        @media(max-width: 768px) {
+        @media (max-width: 768px) {
             header {
                 flex-direction: column;
                 gap: 18px;
             }
 
             nav {
-                display: flex;
-                flex-wrap: wrap;
                 justify-content: center;
                 gap: 12px;
             }
@@ -157,19 +177,28 @@
                 margin: 5px;
             }
 
+            .hero {
+                padding: 65px 6%;
+            }
+
             .hero h1 {
                 font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
             }
 
             .cards {
                 grid-template-columns: 1fr;
             }
+
+            .services {
+                padding: 45px 6%;
+            }
         }
     </style>
-<link rel="manifest" href="/statique/manifest.json">
-<meta name="theme-color" content="#123b66">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes"> </head>
+</head>
 
 <body>
 
@@ -186,7 +215,11 @@
 </header>
 
 <section class="hero">
-    <h1>Construisez votre <span>avenir professionnel</span></h1>
+
+    <h1>
+        Construisez votre
+        <span>avenir professionnel</span>
+    </h1>
 
     <p>
         Créez des CV professionnels, des lettres de motivation
@@ -194,10 +227,14 @@
         Donnez une nouvelle dimension à votre carrière.
     </p>
 
-    <a href="/cv" class="button">Créer mon CV maintenant</a>
+    <a href="/cv" class="button">
+        Créer mon CV maintenant
+    </a>
+
 </section>
 
 <section class="services">
+
     <h2>Nos services</h2>
 
     <p class="services-intro">
@@ -208,49 +245,71 @@
 
         <div class="card">
             <div class="icon">📄</div>
+
             <h3>Création de CV</h3>
+
             <p>
                 Créez un CV moderne et professionnel
                 qui met en valeur vos compétences et expériences.
             </p>
+
             <a href="/cv">Créer mon CV →</a>
         </div>
 
         <div class="card">
             <div class="icon">✉️</div>
+
             <h3>Lettre de motivation</h3>
+
             <p>
                 Préparez une lettre personnalisée
                 pour convaincre les recruteurs.
             </p>
+
             <a href="/lettre">Créer ma lettre →</a>
         </div>
 
         <div class="card">
             <div class="icon">💼</div>
+
             <h3>Demande d'emploi</h3>
+
             <p>
                 Rédigez une demande d'emploi claire,
                 structurée et adaptée à votre objectif.
             </p>
+
             <a href="/demande">Rédiger ma demande →</a>
         </div>
 
     </div>
+
 </section>
 
 <footer>
-    <p>© 2026 CARRIÈRE PRO - Votre avenir professionnel commence ici !</p>
+    <p>
+        © 2026 CARRIÈRE PRO - Votre avenir professionnel commence ici !
+    </p>
 </footer>
 
+<!-- Enregistrement du Service Worker Android -->
 <script>
 if ("serviceWorker" in navigator) {
+
     window.addEventListener("load", function () {
+
         navigator.serviceWorker.register("/statique/sw.js")
+            .then(function (registration) {
+                console.log("Application Android prête :", registration.scope);
+            })
             .catch(function (error) {
                 console.error("Erreur Service Worker :", error);
             });
+
     });
+
 }
-</script> </body>
+</script>
+
+</body>
 </html>
