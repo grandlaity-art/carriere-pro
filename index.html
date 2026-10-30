@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARRIÈRE PRO - Votre avenir professionnel</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #17243a;
+        }
+
+        header {
+            background: #10233f;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #d8ad52;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #e3bb65;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #10233f, #203e65);
+            color: white;
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #e3bb65;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+
+        .button {
+            display: inline-block;
+            background: #d8ad52;
+            color: #10233f;
+            padding: 15px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #e3bb65;
+        }
+
+        .services {
+            padding: 65px 8%;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .services-intro {
+            color: #64748b;
+            margin-bottom: 40px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .card h3 {
+            margin: 18px 0;
+            color: #10233f;
+        }
+
+        .card p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .card a {
+            color: #b58b34;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .icon {
+            font-size: 38px;
+        }
+
+        footer {
+            background: #10233f;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        @media(max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">CARRIÈRE <span>PRO</span></div>
+
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/cv">Créer un CV</a>
+        <a href="/lettre">Lettre de motivation</a>
+        <a href="/demande">Demande d'emploi</a>
+        <a href="/tarifs">Tarifs</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Construisez votre <span>avenir professionnel</span></h1>
+
+    <p>
+        Créez des CV professionnels, des lettres de motivation
+        et des demandes d'emploi adaptés à vos ambitions.
+        Donnez une nouvelle dimension à votre carrière.
+    </p>
+
+    <a href="/cv" class="button">Créer mon CV maintenant</a>
+</section>
+
+<section class="services">
+    <h2>Nos services</h2>
+
+    <p class="services-intro">
+        Tous les outils nécessaires pour réussir votre recherche d'emploi.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">📄</div>
+            <h3>Création de CV</h3>
+            <p>
+                Créez un CV moderne et professionnel
+                qui met en valeur vos compétences et expériences.
+            </p>
+            <a href="/cv">Créer mon CV →</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">✉️</div>
+            <h3>Lettre de motivation</h3>
+            <p>
+                Préparez une lettre personnalisée
+                pour convaincre les recruteurs.
+            </p>
+            <a href="/lettre">Créer ma lettre →</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">💼</div>
+            <h3>Demande d'emploi</h3>
+            <p>
+                Rédigez une demande d'emploi claire,
+                structurée et adaptée à votre objectif.
+            </p>
+            <a href="/demande">Rédiger ma demande →</a>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 CARRIÈRE PRO - Votre avenir professionnel commence ici !</p>
+</footer>
+
+</body>
+</html>
