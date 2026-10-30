@@ -1,0 +1,184 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document généré - CARRIÈRE PRO</title>
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6fa;
+            color: #17243b;
+        }
+
+        header {
+            background: #102544;
+            color: white;
+            padding: 22px 8%;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #e5bd62;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 35px auto;
+            padding: 35px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px #00000012;
+        }
+
+        h2 {
+            color: #102544;
+            border-bottom: 2px solid #d4aa48;
+            padding-bottom: 15px;
+        }
+
+        .document {
+            margin-top: 30px;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .document p { margin: 12px 0; }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        button, .retour {
+            display: inline-block;
+            padding: 14px 22px;
+            border: none;
+            border-radius: 7px;
+            background: #d4aa48;
+            color: #102544;
+            font-size: 15px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        button:hover, .retour:hover {
+            background: #e5bd62;
+        }
+
+        .date {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        @media(max-width: 600px) {
+            main {
+                margin: 12px;
+                padding: 20px;
+            }
+
+            .document { padding: 15px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>CARRIÈRE PRO</h1>
+</header>
+
+<main>
+
+    <h2>{{ titre }}</h2>
+
+    <p class="date">
+        Document préparé le {{ date }}
+    </p>
+
+    <div class="document">
+
+        {% if document.contenu is defined %}
+
+            {{ document.contenu | trim }}
+
+        {% else %}
+
+            <h3>{{ document.nom }}</h3>
+
+            <p><strong>Téléphone :</strong> {{ document.telephone }}</p>
+            <p><strong>Email :</strong> {{ document.email }}</p>
+            <p><strong>Adresse :</strong> {{ document.adresse }}</p>
+
+            <p><strong>Poste recherché :</strong> {{ document.poste }}</p>
+
+            <h3>Profil professionnel</h3>
+            <p>{{ document.profil }}</p>
+
+            <h3>Formation et diplômes</h3>
+            <p>{{ document.formation }}</p>
+
+            <h3>Expériences professionnelles</h3>
+            <p>{{ document.experience }}</p>
+
+            <h3>Compétences</h3>
+            <p>{{ document.competences }}</p>
+
+            <h3>Langues parlées</h3>
+            <p>{{ document.langues }}</p>
+
+            <h3>Centres d'intérêt</h3>
+            <p>{{ document.interets }}</p>
+
+        {% endif %}
+
+    </div>
+
+    <div class="actions">
+
+        <form method="POST" action="{{ url_for('telecharger_pdf') }}">
+
+            <input type="hidden" name="titre" value="{{ titre }}">
+            <input type="hidden" name="date" value="{{ date }}">
+
+            {% if document.contenu is defined %}
+
+                <input type="hidden" name="contenu" value="{{ document.contenu }}">
+
+            {% else %}
+
+                {% for champ, valeur in document.items() %}
+                    <input type="hidden" name="{{ champ }}" value="{{ valeur }}">
+                {% endfor %}
+
+            {% endif %}
+
+            <button type="submit">
+                Télécharger mon document en PDF
+            </button>
+
+        </form>
+
+        <a href="/" class="retour">
+            Retour à l'accueil
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+</html>
+```

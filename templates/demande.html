@@ -1,0 +1,136 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande d'emploi - CARRIÈRE PRO</title>
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6fa;
+            color: #17243b;
+        }
+
+        header {
+            background: #102544;
+            color: white;
+            padding: 22px 8%;
+        }
+
+        header h1 { margin: 0; color: #e5bd62; }
+
+        main {
+            max-width: 850px;
+            margin: 35px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px #00000012;
+        }
+
+        h2 { color: #102544; }
+        .intro { color: #64748b; }
+
+        label {
+            display: block;
+            margin: 17px 0 7px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccd3df;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 14px 25px;
+            border: none;
+            border-radius: 7px;
+            background: #d4aa48;
+            color: #102544;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover { background: #e5bd62; }
+
+        .retour {
+            display: inline-block;
+            margin-top: 20px;
+            color: #102544;
+            text-decoration: none;
+        }
+
+        .message { color: #b91c1c; }
+
+        @media(max-width: 600px) {
+            main { margin: 15px; padding: 20px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>CARRIÈRE PRO</h1>
+</header>
+
+<main>
+
+    <h2>Rédiger une demande d'emploi</h2>
+
+    <p class="intro">
+        Remplissez les informations pour préparer
+        une demande d'emploi professionnelle.
+    </p>
+
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            <p class="message">{{ message }}</p>
+        {% endfor %}
+    {% endwith %}
+
+    <form method="POST" action="/demande">
+
+        <label>Nom et prénom</label>
+        <input type="text" name="nom" required>
+
+        <label>Nom de l'entreprise</label>
+        <input type="text" name="entreprise" required>
+
+        <label>Poste sollicité</label>
+        <input type="text" name="poste" required>
+
+        <label>Votre message ou vos motivations</label>
+        <textarea name="message"
+            placeholder="Présentez vos motivations et vos compétences..."
+            required></textarea>
+
+        <button type="submit">
+            Générer ma demande
+        </button>
+
+    </form>
+
+    <a class="retour" href="/">← Retour à l'accueil</a>
+
+</main>
+
+</body>
+</html>
+```

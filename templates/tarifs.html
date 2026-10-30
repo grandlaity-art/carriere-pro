@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifs - CARRIÈRE PRO</title>
+
+```
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 30px 15px;
+        font-family: Arial, sans-serif;
+        background: #f3f5f9;
+        color: #17233d;
+    }
+
+    .conteneur {
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    header {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+    header h1 {
+        color: #10264b;
+        font-size: 36px;
+    }
+
+    header p {
+        color: #64748b;
+        font-size: 17px;
+    }
+
+    .grille {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 22px;
+    }
+
+    .carte {
+        background: white;
+        padding: 25px;
+        border-radius: 14px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    }
+
+    .carte h2 {
+        color: #10264b;
+        font-size: 21px;
+    }
+
+    .prix {
+        color: #c49a36;
+        font-size: 30px;
+        font-weight: bold;
+        margin: 20px 0;
+    }
+
+    .bouton-paiement {
+        display: block;
+        width: 100%;
+        padding: 13px 8px;
+        margin-top: 12px;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .wave {
+        background: #16a36a;
+    }
+
+    .orange {
+        background: #f28c00;
+    }
+
+    .bouton-paiement:hover {
+        opacity: 0.85;
+    }
+
+    .retour {
+        display: inline-block;
+        margin-top: 30px;
+        color: #10264b;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .information {
+        text-align: center;
+        margin-top: 30px;
+        color: #64748b;
+        font-size: 14px;
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<div class="conteneur">
+
+```
+<header>
+    <h1>CARRIÈRE PRO</h1>
+    <p>Choisissez le document professionnel dont vous avez besoin.</p>
+</header>
+
+<div class="grille">
+
+    <div class="carte">
+        <h2>CV professionnel</h2>
+        <p>Un CV adapté à votre profil.</p>
+        <div class="prix">1 000 FCFA</div>
+
+        <button class="bouton-paiement wave"
+            onclick="paiement('CV professionnel', 1000, 'Wave')">
+            Payer avec Wave
+        </button>
+
+        <button class="bouton-paiement orange"
+            onclick="paiement('CV professionnel', 1000, 'Orange Money')">
+            Payer avec Orange Money
+        </button>
+    </div>
+
+    <div class="carte">
+        <h2>Lettre de motivation</h2>
+        <p>Une lettre adaptée à votre candidature.</p>
+        <div class="prix">500 FCFA</div>
+
+        <button class="bouton-paiement wave"
+            onclick="paiement('Lettre de motivation', 500, 'Wave')">
+            Payer avec Wave
+        </button>
+
+        <button class="bouton-paiement orange"
+            onclick="paiement('Lettre de motivation', 500, 'Orange Money')">
+            Payer avec Orange Money
+        </button>
+    </div>
+
+    <div class="carte">
+        <h2>Demande d'emploi</h2>
+        <p>Une demande d'emploi professionnelle.</p>
+        <div class="prix">500 FCFA</div>
+
+        <button class="bouton-paiement wave"
+            onclick="paiement('Demande d’emploi', 500, 'Wave')">
+            Payer avec Wave
+        </button>
+
+        <button class="bouton-paiement orange"
+            onclick="paiement('Demande d’emploi', 500, 'Orange Money')">
+            Payer avec Orange Money
+        </button>
+    </div>
+
+    <div class="carte">
+        <h2>Pack complet</h2>
+        <p>CV + Lettre de motivation + Demande d'emploi.</p>
+        <div class="prix">1 500 FCFA</div>
+
+        <button class="bouton-paiement wave"
+            onclick="paiement('Pack complet', 1500, 'Wave')">
+            Payer avec Wave
+        </button>
+
+        <button class="bouton-paiement orange"
+            onclick="paiement('Pack complet', 1500, 'Orange Money')">
+            Payer avec Orange Money
+        </button>
+    </div>
+
+</div>
+
+<div class="information">
+    Les boutons de paiement sont en cours de configuration.
+    Aucun paiement réel n'est encore effectué.
+</div>
+
+<a href="/" class="retour">← Retour à l'accueil</a>
+```
+
+</div>
+
+<script>
+    function paiement(documentNom, montant, moyen) {
+        alert(
+            "Votre choix : " + documentNom +
+            "\nMontant : " + montant + " FCFA" +
+            "\nMoyen de paiement : " + moyen +
+            "\n\nCe moyen de paiement sera bientôt activé."
+        );
+    }
+</script>
+
+</body>
+</html>

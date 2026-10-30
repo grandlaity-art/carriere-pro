@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer mon CV - CARRIÈRE PRO</title>
+    <style>
+        * { box-sizing: border-box; }
+
+```
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f6fa;
+        color: #17243b;
+    }
+
+    header {
+        background: #102544;
+        color: white;
+        padding: 22px 8%;
+    }
+
+    header h1 {
+        margin: 0;
+        color: #e5bd62;
+    }
+
+    main {
+        max-width: 850px;
+        margin: 35px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px #00000012;
+    }
+
+    h2 { color: #102544; }
+
+    .intro { color: #64748b; }
+
+    label {
+        display: block;
+        margin: 17px 0 7px;
+        font-weight: bold;
+    }
+
+    input, textarea, select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccd3df;
+        border-radius: 7px;
+        font-size: 15px;
+    }
+
+    textarea {
+        min-height: 95px;
+        resize: vertical;
+    }
+
+    button {
+        margin-top: 25px;
+        padding: 14px 25px;
+        border: none;
+        border-radius: 7px;
+        background: #d4aa48;
+        color: #102544;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button:hover { background: #e5bd62; }
+
+    .retour {
+        display: inline-block;
+        margin-top: 20px;
+        color: #102544;
+        text-decoration: none;
+    }
+</style>
+```
+
+</head>
+<body>
+
+<header>
+    <h1>CARRIÈRE PRO</h1>
+</header>
+
+<main>
+    <h2>Créer mon CV professionnel</h2>
+    <p class="intro">
+        Remplissez soigneusement les informations ci-dessous.
+    </p>
+
+```
+<form method="POST" action="/cv">
+    <label>Nom et prénom</label>
+    <input type="text" name="nom" required>
+
+    <label>Téléphone</label>
+    <input type="tel" name="telephone" required>
+
+    <label>Adresse e-mail</label>
+    <input type="email" name="email">
+
+    <label>Ville et pays</label>
+    <input type="text" name="adresse">
+
+    <label>Poste recherché</label>
+    <input type="text" name="poste" required>
+
+    <label>Profil professionnel</label>
+    <textarea name="profil" placeholder="Présentez-vous en quelques phrases..."></textarea>
+
+    <label>Formation et diplômes</label>
+    <textarea name="formation" placeholder="Indiquez vos diplômes et établissements..."></textarea>
+
+    <label>Expériences professionnelles</label>
+    <textarea name="experience" placeholder="Décrivez vos expériences professionnelles..."></textarea>
+
+    <label>Compétences</label>
+    <textarea name="competences" placeholder="Indiquez vos compétences..."></textarea>
+
+    <label>Langues parlées</label>
+    <textarea name="langues" placeholder="Exemple : Français, Anglais, Wolof..."></textarea>
+
+    <label>Centres d'intérêt</label>
+    <textarea name="interets"></textarea>
+
+    <button type="submit">Générer mon CV</button>
+</form>
+
+<a class="retour" href="/">← Retour à l'accueil</a>
+```
+
+</main>
+
+</body>
+</html>
