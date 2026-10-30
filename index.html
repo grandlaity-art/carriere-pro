@@ -243,5 +243,14 @@
     <p>© 2026 CARRIÈRE PRO - Votre avenir professionnel commence ici !</p>
 </footer>
 
-</body>
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/statique/sw.js")
+            .catch(function (error) {
+                console.error("Erreur Service Worker :", error);
+            });
+    });
+}
+</script> </body>
 </html>
