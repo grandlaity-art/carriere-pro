@@ -1,489 +1,517 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Créer mon CV - CARRIÈRE PRO</title>
 
-```
-<style>
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f2f5fa;
-        color: #17243b;
-    }
-
-    header {
-        background: #102544;
-        color: white;
-        padding: 22px 7%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
-    header h1 {
-        margin: 0;
-        color: #e5bd62;
-        font-size: 25px;
-    }
-
-    header span {
-        font-size: 13px;
-        color: #dce5f1;
-    }
-
-    main {
-        max-width: 1100px;
-        margin: 35px auto;
-        padding: 30px;
-        background: white;
-        border-radius: 16px;
-        box-shadow: 0 5px 25px #0000000d;
-    }
-
-    h2, h3 {
-        color: #102544;
-    }
-
-    .intro {
-        color: #64748b;
-        line-height: 1.6;
-    }
-
-    .section-title {
-        margin-top: 35px;
-        padding-bottom: 12px;
-        border-bottom: 2px solid #e9edf4;
-    }
-
-    .modeles {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-        gap: 20px;
-        margin-top: 22px;
-    }
-
-    .modele {
-        border: 2px solid #e1e6ef;
-        border-radius: 12px;
-        padding: 12px;
-        cursor: pointer;
-        transition: 0.2s;
-        background: white;
-    }
-
-    .modele:hover {
-        border-color: #d4aa48;
-        transform: translateY(-3px);
-    }
-
-    .modele:has(input:checked) {
-        border-color: #d4aa48;
-        background: #fffaf0;
-        box-shadow: 0 0 0 2px #d4aa4830;
-    }
-
-    .modele input {
-        width: auto;
-        margin-right: 6px;
-    }
-
-    .apercu {
-        height: 185px;
-        background: #f4f6fa;
-        border: 1px solid #e1e6ef;
-        margin-bottom: 12px;
-        padding: 13px;
-        display: flex;
-        gap: 9px;
-        overflow: hidden;
-    }
-
-    .apercu .colonne {
-        flex: 1;
-    }
-
-    .apercu .ligne {
-        height: 5px;
-        background: #cbd3df;
-        margin: 9px 0;
-        border-radius: 5px;
-    }
-
-    .apercu .ligne.courte {
-        width: 60%;
-    }
-
-    .apercu .titre {
-        height: 11px;
-        width: 75%;
-        background: #102544;
-        margin-bottom: 12px;
-        border-radius: 3px;
-    }
-
-    .apercu.classique {
-        display: block;
-        border-top: 12px solid #102544;
-    }
-
-    .apercu.moderne {
-        background: #fff;
-    }
-
-    .apercu.moderne .colonne:first-child {
-        background: #102544;
-        padding: 9px;
-    }
-
-    .apercu.moderne .colonne:first-child .ligne,
-    .apercu.creatif .colonne:first-child .ligne {
-        background: #fff;
-    }
-
-    .apercu.elegant {
-        border-top: 10px solid #b58b46;
-        text-align: center;
-        display: block;
-    }
-
-    .apercu.creatif {
-        background: #eef3fa;
-    }
-
-    .apercu.creatif .colonne:first-child {
-        background: #234c72;
-        padding: 9px;
-    }
-
-    .apercu.cadre {
-        border-left: 14px solid #bd9b54;
-    }
-
-    .apercu.debutant {
-        border-top: 10px solid #387d78;
-        display: block;
-    }
-
-    .modele strong {
-        display: block;
-        color: #102544;
-        margin: 7px 0;
-    }
-
-    .modele small {
-        color: #64748b;
-        line-height: 1.4;
-    }
-
-    label {
-        display: block;
-        margin: 17px 0 7px;
-        font-weight: bold;
-    }
-
-    input[type="text"],
-    input[type="tel"],
-    input[type="email"],
-    textarea {
-        width: 100%;
-        padding: 13px;
-        border: 1px solid #ccd3df;
-        border-radius: 8px;
-        font-size: 15px;
-        font-family: Arial, sans-serif;
-    }
-
-    input:focus,
-    textarea:focus {
-        outline: none;
-        border-color: #d4aa48;
-        box-shadow: 0 0 0 3px #d4aa4820;
-    }
-
-    textarea {
-        min-height: 100px;
-        resize: vertical;
-    }
-
-    .grille-formulaire {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0 20px;
-    }
-
-    .champ-complet {
-        grid-column: 1 / -1;
-    }
-
-    .bouton {
-        display: inline-block;
-        margin-top: 28px;
-        padding: 15px 25px;
-        border: none;
-        border-radius: 8px;
-        background: #d4aa48;
-        color: #102544;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .bouton:hover {
-        background: #e5bd62;
-    }
-
-    .retour {
-        display: inline-block;
-        margin-top: 22px;
-        color: #102544;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .note {
-        background: #f4f7fc;
-        padding: 14px;
-        border-left: 4px solid #d4aa48;
-        border-radius: 6px;
-        color: #526078;
-        font-size: 14px;
-        line-height: 1.5;
-        margin-top: 20px;
-    }
-
-    @media (max-width: 650px) {
-        main {
-            margin: 15px;
-            padding: 20px;
+    <style>
+        * {
+            box-sizing: border-box;
         }
 
-        .grille-formulaire {
-            grid-template-columns: 1fr;
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f5fa;
+            color: #17243b;
         }
 
         header {
-            padding: 20px;
+            background: #102544;
+            color: white;
+            padding: 22px 7%;
         }
-    }
-</style>
-```
 
+        header h1 {
+            margin: 0;
+            color: #e5bd62;
+            font-size: 27px;
+        }
+
+        header p {
+            margin-bottom: 0;
+            color: #dce5f1;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 35px auto;
+            padding: 30px;
+        }
+
+        .titre-page {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .titre-page h2 {
+            color: #102544;
+            font-size: 30px;
+        }
+
+        .titre-page p {
+            color: #64748b;
+        }
+
+        .bloc {
+            background: white;
+            padding: 28px;
+            margin-bottom: 25px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px #0000000d;
+        }
+
+        .bloc h3 {
+            color: #102544;
+            margin-top: 0;
+            border-bottom: 2px solid #e5bd62;
+            padding-bottom: 12px;
+        }
+
+        .grille-modeles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .modele {
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .modele:hover {
+            border-color: #d4aa48;
+            transform: translateY(-3px);
+        }
+
+        .modele input {
+            margin-right: 7px;
+            accent-color: #102544;
+        }
+
+        .modele:has(input:checked) {
+            border-color: #d4aa48;
+            background: #fffaf0;
+        }
+
+        .modele strong {
+            display: block;
+            margin-bottom: 12px;
+            color: #102544;
+            font-size: 16px;
+        }
+
+        .apercu {
+            height: 145px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 13px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .apercu .nom {
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .apercu .ligne {
+            height: 5px;
+            background: #cbd5e1;
+            margin: 7px 0;
+            border-radius: 4px;
+        }
+
+        .apercu .court {
+            width: 55%;
+        }
+
+        .classique .nom {
+            color: #102544;
+            border-bottom: 3px solid #d4aa48;
+            padding-bottom: 7px;
+        }
+
+        .moderne .nom {
+            color: #176b87;
+            border-left: 5px solid #36a6a0;
+            padding-left: 8px;
+        }
+
+        .elegant .nom {
+            color: #333333;
+            text-align: center;
+            border-bottom: 2px solid #b69a62;
+            padding-bottom: 7px;
+        }
+
+        .creatif .nom {
+            color: #593a80;
+            border-bottom: 4px solid #e17b68;
+            padding-bottom: 7px;
+        }
+
+        .cadre .nom {
+            color: #142d4e;
+            border-left: 7px solid #c49a45;
+            padding-left: 8px;
+        }
+
+        .debutant .nom {
+            color: #26734d;
+            border-bottom: 3px solid #76a88a;
+            padding-bottom: 7px;
+        }
+
+        .formulaire {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .champ {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .champ.large {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #334155;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #176b87;
+        }
+
+        .bouton {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: #102544;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 25px;
+        }
+
+        .bouton:hover {
+            background: #1b416d;
+        }
+
+        .retour {
+            display: inline-block;
+            margin-top: 20px;
+            color: #176b87;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .message {
+            background: #fff3cd;
+            color: #664d03;
+            padding: 12px;
+            border-radius: 7px;
+            margin-bottom: 15px;
+        }
+
+        @media(max-width: 750px) {
+            main {
+                padding: 15px;
+            }
+
+            .grille-modeles {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .formulaire {
+                grid-template-columns: 1fr;
+            }
+
+            .champ.large {
+                grid-column: auto;
+            }
+
+            .bloc {
+                padding: 20px;
+            }
+        }
+
+        @media(max-width: 450px) {
+            .grille-modeles {
+                grid-template-columns: 1fr;
+            }
+
+            .titre-page h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
     <h1>CARRIÈRE PRO</h1>
-    <span>Votre avenir professionnel commence ici</span>
+    <p>Votre avenir professionnel commence ici.</p>
 </header>
 
 <main>
 
-```
-<h2>Créer mon CV professionnel</h2>
-
-<p class="intro">
-    Renseignez vos informations et choisissez le modèle
-    qui correspond le mieux à votre profil professionnel.
-</p>
-
-<form method="POST" action="/cv">
-
-    <h3 class="section-title">1. Choisissez votre modèle de CV</h3>
-
-    <div class="modeles">
-
-        <label class="modele">
-            <div class="apercu classique">
-                <div class="titre"></div>
-                <div class="ligne"></div>
-                <div class="ligne courte"></div>
-                <div class="titre"></div>
-                <div class="ligne"></div>
-                <div class="ligne"></div>
-                <div class="ligne courte"></div>
-            </div>
-            <input type="radio" name="modele" value="classique" checked>
-            <strong>Classique</strong>
-            <small>Sobre, simple et professionnel.</small>
-        </label>
-
-        <label class="modele">
-            <div class="apercu moderne">
-                <div class="colonne">
-                    <div class="ligne"></div>
-                    <div class="ligne courte"></div>
-                    <div class="ligne"></div>
-                    <div class="ligne courte"></div>
-                </div>
-                <div class="colonne">
-                    <div class="titre"></div>
-                    <div class="ligne"></div>
-                    <div class="ligne"></div>
-                    <div class="titre"></div>
-                    <div class="ligne"></div>
-                </div>
-            </div>
-            <input type="radio" name="modele" value="moderne">
-            <strong>Moderne</strong>
-            <small>Design actuel avec deux colonnes.</small>
-        </label>
-
-        <label class="modele">
-            <div class="apercu elegant">
-                <div class="titre" style="margin: auto;"></div>
-                <div class="ligne"></div>
-                <div class="ligne courte" style="margin: 9px auto;"></div>
-                <div class="titre"></div>
-                <div class="ligne"></div>
-                <div class="ligne"></div>
-            </div>
-            <input type="radio" name="modele" value="elegant">
-            <strong>Élégant</strong>
-            <small>Présentation raffinée et épurée.</small>
-        </label>
-
-        <label class="modele">
-            <div class="apercu creatif">
-                <div class="colonne">
-                    <div class="ligne"></div>
-                    <div class="ligne"></div>
-                    <div class="ligne courte"></div>
-                </div>
-                <div class="colonne">
-                    <div class="titre"></div>
-                    <div class="ligne"></div>
-                    <div class="ligne"></div>
-                    <div class="titre"></div>
-                    <div class="ligne"></div>
-                </div>
-            </div>
-            <input type="radio" name="modele" value="creatif">
-            <strong>Créatif</strong>
-            <small>Une présentation visuelle et originale.</small>
-        </label>
-
-        <label class="modele">
-            <div class="apercu cadre">
-                <div class="colonne">
-                    <div class="titre"></div>
-                    <div class="ligne"></div>
-                    <div class="ligne"></div>
-                    <div class="titre"></div>
-                    <div class="ligne"></div>
-                </div>
-                <div class="colonne">
-                    <div class="titre"></div>
-                    <div class="ligne"></div>
-                    <div class="ligne courte"></div>
-                    <div class="titre"></div>
-                    <div class="ligne"></div>
-                </div>
-            </div>
-            <input type="radio" name="modele" value="cadre">
-            <strong>Cadre et Manager</strong>
-            <small>Adapté aux profils expérimentés.</small>
-        </label>
-
-        <label class="modele">
-            <div class="apercu debutant">
-                <div class="titre"></div>
-                <div class="ligne"></div>
-                <div class="titre"></div>
-                <div class="ligne"></div>
-                <div class="ligne courte"></div>
-                <div class="titre"></div>
-                <div class="ligne"></div>
-            </div>
-            <input type="radio" name="modele" value="debutant">
-            <strong>Débutant</strong>
-            <small>Idéal pour les premiers emplois.</small>
-        </label>
-
+    <div class="titre-page">
+        <h2>Créer mon CV professionnel</h2>
+        <p>Choisissez un modèle et renseignez vos informations.</p>
     </div>
 
-    <h3 class="section-title">2. Informations personnelles</h3>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 
-    <div class="grille-formulaire">
+    <form method="POST" action="{{ url_for('cv') }}">
 
-        <div>
-            <label>Nom et prénom *</label>
-            <input type="text" name="nom" required>
+        <div class="bloc">
+
+            <h3>1. Choisissez votre modèle de CV</h3>
+
+            <div class="grille-modeles">
+
+                <label class="modele">
+                    <input type="radio" name="modele"
+                           value="classique" checked>
+                    <strong>Classique</strong>
+                    <div class="apercu classique">
+                        <div class="nom">MON CV</div>
+                        <div class="ligne"></div>
+                        <div class="ligne court"></div>
+                        <div class="ligne"></div>
+                        <div class="ligne court"></div>
+                        <div class="ligne"></div>
+                    </div>
+                </label>
+
+                <label class="modele">
+                    <input type="radio" name="modele"
+                           value="moderne">
+                    <strong>Moderne</strong>
+                    <div class="apercu moderne">
+                        <div class="nom">MON CV</div>
+                        <div class="ligne"></div>
+                        <div class="ligne court"></div>
+                        <div class="ligne"></div>
+                        <div class="ligne court"></div>
+                        <div class="ligne"></div>
+                    </div>
+                </label>
+
+                <label class="modele">
+                    <input type="radio" name="modele"
+                           value="elegant">
+                    <strong>Élégant</strong>
+                    <div class="apercu elegant">
+                        <div class="nom">MON CV</div>
+                        <div class="ligne"></div>
+                        <div class="ligne court"></div>
+                        <div class="ligne"></div>
+                        <div class="ligne court"></div>
+                        <div class="ligne"></div>
+                    </div>
+                </label>
+
+                <label class="modele">
+                    <input type="radio" name="modele"
+                           value="creatif">
+                    <strong>Créatif</strong>
+                    <div class="apercu creatif">
+                        <div class="nom">MON CV</div>
+                        <div class="ligne"></div>
+                        <div class="ligne court"></div>
+                        <div class="ligne"></div>
+                        <div class="ligne court"></div>
+                        <div class="ligne"></div>
+                    </div>
+                </label>
+
+                <label class="modele">
+                    <input type="radio" name="modele"
+                           value="cadre">
+                    <strong>Cadre</strong>
+                    <div class="apercu cadre">
+                        <div class="nom">MON CV</div>
+                        <div class="ligne"></div>
+                        <div class="ligne court"></div>
+                        <div class="ligne"></div>
+                        <div class="ligne court"></div>
+                        <div class="ligne"></div>
+                    </div>
+                </label>
+
+                <label class="modele">
+                    <input type="radio" name="modele"
+                           value="debutant">
+                    <strong>Débutant</strong>
+                    <div class="apercu debutant">
+                        <div class="nom">MON CV</div>
+                        <div class="ligne"></div>
+                        <div class="ligne court"></div>
+                        <div class="ligne"></div>
+                        <div class="ligne court"></div>
+                        <div class="ligne"></div>
+                    </div>
+                </label>
+
+            </div>
         </div>
 
-        <div>
-            <label>Téléphone *</label>
-            <input type="tel" name="telephone" required>
+        <div class="bloc">
+
+            <h3>2. Informations personnelles</h3>
+
+            <div class="formulaire">
+
+                <div class="champ">
+                    <label for="nom">Nom et prénom *</label>
+                    <input type="text" id="nom" name="nom"
+                           placeholder="Votre nom complet" required>
+                </div>
+
+                <div class="champ">
+                    <label for="telephone">Téléphone</label>
+                    <input type="tel" id="telephone" name="telephone"
+                           placeholder="Votre numéro de téléphone">
+                </div>
+
+                <div class="champ">
+                    <label for="email">Adresse e-mail</label>
+                    <input type="email" id="email" name="email"
+                           placeholder="exemple@email.com">
+                </div>
+
+                <div class="champ">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" id="adresse" name="adresse"
+                           placeholder="Ville, quartier">
+                </div>
+
+                <div class="champ large">
+                    <label for="poste">Poste recherché *</label>
+                    <input type="text" id="poste" name="poste"
+                           placeholder="Exemple : Assistant administratif"
+                           required>
+                </div>
+
+            </div>
         </div>
 
-        <div>
-            <label>Adresse e-mail</label>
-            <input type="email" name="email">
+        <div class="bloc">
+
+            <h3>3. Profil professionnel</h3>
+
+            <div class="champ">
+                <label for="profil">Présentez-vous professionnellement</label>
+                <textarea id="profil" name="profil"
+                          placeholder="Décrivez votre profil, vos qualités et vos objectifs..."></textarea>
+            </div>
+
         </div>
 
-        <div>
-            <label>Ville et pays</label>
-            <input type="text" name="adresse">
+        <div class="bloc">
+
+            <h3>4. Formation et diplômes</h3>
+
+            <div class="champ">
+                <label for="formation">Vos études et diplômes</label>
+                <textarea id="formation" name="formation"
+                          placeholder="Indiquez vos diplômes, établissements et années..."></textarea>
+            </div>
+
         </div>
 
-        <div class="champ-complet">
-            <label>Poste recherché *</label>
-            <input type="text" name="poste" required>
+        <div class="bloc">
+
+            <h3>5. Expériences professionnelles</h3>
+
+            <div class="champ">
+                <label for="experience">Vos expériences</label>
+                <textarea id="experience" name="experience"
+                          placeholder="Précisez vos postes, entreprises, périodes et missions..."></textarea>
+            </div>
+
         </div>
 
-        <div class="champ-complet">
-            <label>Profil professionnel</label>
-            <textarea name="profil"
-                placeholder="Présentez-vous en quelques phrases..."></textarea>
+        <div class="bloc">
+
+            <h3>6. Compétences</h3>
+
+            <div class="champ">
+                <label for="competences">Vos compétences</label>
+                <textarea id="competences" name="competences"
+                          placeholder="Exemple : informatique, gestion, communication..."></textarea>
+            </div>
+
         </div>
 
-    </div>
+        <div class="bloc">
 
-    <h3 class="section-title">3. Formation et expérience</h3>
+            <h3>7. Langues parlées</h3>
 
-    <label>Formation et diplômes</label>
-    <textarea name="formation"
-        placeholder="Indiquez vos diplômes et établissements..."></textarea>
+            <div class="champ">
+                <label for="langues">Vos langues</label>
+                <textarea id="langues" name="langues"
+                          placeholder="Exemple : Français, Wolof, Anglais..."></textarea>
+            </div>
 
-    <label>Expériences professionnelles</label>
-    <textarea name="experience"
-        placeholder="Décrivez vos expériences professionnelles..."></textarea>
+        </div>
 
-    <h3 class="section-title">4. Compétences et informations complémentaires</h3>
+        <div class="bloc">
 
-    <label>Compétences</label>
-    <textarea name="competences"
-        placeholder="Indiquez vos compétences..."></textarea>
+            <h3>8. Centres d'intérêt</h3>
 
-    <label>Langues parlées</label>
-    <textarea name="langues"
-        placeholder="Exemple : Français, Anglais, Wolof..."></textarea>
+            <div class="champ">
+                <label for="interets">Vos loisirs et centres d'intérêt</label>
+                <textarea id="interets" name="interets"
+                          placeholder="Indiquez vos activités et passions..."></textarea>
+            </div>
 
-    <label>Centres d'intérêt</label>
-    <textarea name="interets"></textarea>
+        </div>
 
-    <div class="note">
-        Votre CV sera préparé à partir des informations fournies.
-        Vérifiez leur exactitude avant la génération du document.
-    </div>
+        <button type="submit" class="bouton">
+            Générer mon CV professionnel
+        </button>
 
-    <button class="bouton" type="submit">
-        Générer mon CV professionnel
-    </button>
+    </form>
 
-</form>
-
-<a class="retour" href="/">← Retour à l'accueil</a>
-```
+    <a href="/" class="retour">← Retour à l'accueil</a>
 
 </main>
 
