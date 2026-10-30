@@ -24,7 +24,7 @@ from xml.sax.saxutils import escape
 # CHARGEMENT DES VARIABLES
 load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="statique")
 
 app.secret_key = os.environ.get(
     "FLASK_SECRET_KEY",
