@@ -1,21 +1,181 @@
-<form method="POST"
-      action="{{ url_for('mettre_a_jour_cv') }}"
-      enctype="multipart/form-data">
+{% extends "base.html" %}
 
-    <label for="ancien_cv">
-        Importer votre ancien CV (PDF ou photo)
-    </label>
+{% block title %}Créer ou mettre à jour mon CV{% endblock %}
 
-    <input
-        type="file"
-        id="ancien_cv"
-        name="ancien_cv"
-        accept=".pdf,.jpg,.jpeg,.png,.webp"
-        required
-    >
+{% block content %}
 
-    <button type="submit">
-        Mettre à jour mon CV
-    </button>
+<div class="container" style="max-width: 1000px; margin: 30px auto; padding: 20px;">
 
-</form>
+    <h1>Créer ou mettre à jour mon CV</h1>
+    <p>Choisissez un parcours pour préparer votre CV professionnel.</p>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div style="background:#fff3cd; padding:12px; margin:15px 0; border-radius:8px;">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+
+    <!-- PARCOURS 1 : CRÉER UN NOUVEAU CV -->
+
+    <section style="border:1px solid #ddd; border-radius:12px; padding:22px; margin:25px 0;">
+
+        <h2>1. Créer un nouveau CV</h2>
+        <p>Renseignez vos informations pour générer un CV professionnel.</p>
+
+        <form method="POST" action="{{ url_for('cv') }}">
+
+            <label for="nom">Nom complet *</label>
+            <input type="text" id="nom" name="nom" required
+                   style="display:block; width:100%; padding:10px; margin:8px 0 15px;">
+
+            <label for="telephone">Téléphone</label>
+            <input type="text" id="telephone" name="telephone"
+                   style="display:block; width:100%; padding:10px; margin:8px 0 15px;">
+
+            <label for="email">Adresse e-mail</label>
+            <input type="email" id="email" name="email"
+                   style="display:block; width:100%; padding:10px; margin:8px 0 15px;">
+
+            <label for="adresse">Adresse</label>
+            <input type="text" id="adresse" name="adresse"
+                   style="display:block; width:100%; padding:10px; margin:8px 0 15px;">
+
+            <label for="poste">Poste recherché *</label>
+            <input type="text" id="poste" name="poste" required
+                   style="display:block; width:100%; padding:10px; margin:8px 0 15px;">
+
+            <label for="profil">Profil professionnel</label>
+            <textarea id="profil" name="profil" rows="4"
+                      style="display:block; width:100%; padding:10px; margin:8px 0 15px;"></textarea>
+
+            <label for="formation">Formation et diplômes</label>
+            <textarea id="formation" name="formation" rows="4"
+                      style="display:block; width:100%; padding:10px; margin:8px 0 15px;"></textarea>
+
+            <label for="experience">Expériences professionnelles</label>
+            <textarea id="experience" name="experience" rows="5"
+                      style="display:block; width:100%; padding:10px; margin:8px 0 15px;"></textarea>
+
+            <label for="competences">Compétences</label>
+            <textarea id="competences" name="competences" rows="3"
+                      style="display:block; width:100%; padding:10px; margin:8px 0 15px;"></textarea>
+
+            <label for="langues">Langues</label>
+            <input type="text" id="langues" name="langues"
+                   style="display:block; width:100%; padding:10px; margin:8px 0 15px;">
+
+            <label for="interets">Centres d’intérêt</label>
+            <input type="text" id="interets" name="interets"
+                   style="display:block; width:100%; padding:10px; margin:8px 0 15px;">
+
+
+            <h3>Choisissez votre modèle</h3>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin:15px 0;">
+
+                <label style="border:1px solid #ccc; padding:15px; border-radius:8px;">
+                    <input type="radio" name="modele" value="classique" checked>
+                    <strong>Classique</strong>
+                    <div style="height:35px; background:#102544; margin-top:8px;"></div>
+                </label>
+
+                <label style="border:1px solid #ccc; padding:15px; border-radius:8px;">
+                    <input type="radio" name="modele" value="moderne">
+                    <strong>Moderne</strong>
+                    <div style="height:35px; background:#176B87; margin-top:8px;"></div>
+                </label>
+
+                <label style="border:1px solid #ccc; padding:15px; border-radius:8px;">
+                    <input type="radio" name="modele" value="elegant">
+                    <strong>Élégant</strong>
+                    <div style="height:35px; background:#333333; margin-top:8px;"></div>
+                </label>
+
+                <label style="border:1px solid #ccc; padding:15px; border-radius:8px;">
+                    <input type="radio" name="modele" value="creatif">
+                    <strong>Créatif</strong>
+                    <div style="height:35px; background:#593A80; margin-top:8px;"></div>
+                </label>
+
+                <label style="border:1px solid #ccc; padding:15px; border-radius:8px;">
+                    <input type="radio" name="modele" value="cadre">
+                    <strong>Cadre</strong>
+                    <div style="height:35px; background:#142D4E; margin-top:8px;"></div>
+                </label>
+
+                <label style="border:1px solid #ccc; padding:15px; border-radius:8px;">
+                    <input type="radio" name="modele" value="debutant">
+                    <strong>Débutant</strong>
+                    <div style="height:35px; background:#26734D; margin-top:8px;"></div>
+                </label>
+
+            </div>
+
+            <button type="submit"
+                    style="background:#102544; color:white; padding:12px 22px; border:0; border-radius:8px; cursor:pointer;">
+                Générer mon CV
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- PARCOURS 2 : METTRE À JOUR UN ANCIEN CV -->
+
+    <section style="border:1px solid #ddd; border-radius:12px; padding:22px; margin:25px 0;">
+
+        <h2>2. Mettre à jour mon CV</h2>
+
+        <p>
+            Importez votre ancien CV au format PDF ou sous forme de photo.
+            L’IA pourra améliorer sa présentation et sa formulation sans inventer
+            d’informations.
+        </p>
+
+        <form method="POST"
+              action="{{ url_for('mettre_a_jour_cv') }}"
+              enctype="multipart/form-data">
+
+            <label for="ancien_cv">Importer votre ancien CV *</label>
+
+            <input
+                type="file"
+                id="ancien_cv"
+                name="ancien_cv"
+                accept=".pdf,.jpg,.jpeg,.png,.webp"
+                required
+                style="display:block; width:100%; padding:10px; margin:12px 0;"
+            >
+
+            <label for="modele_mise_a_jour">Choisir le modèle du CV actualisé</label>
+
+            <select id="modele_mise_a_jour" name="modele"
+                    style="display:block; width:100%; padding:10px; margin:12px 0 20px;">
+
+                <option value="classique">Classique</option>
+                <option value="moderne">Moderne</option>
+                <option value="elegant">Élégant</option>
+                <option value="creatif">Créatif</option>
+                <option value="cadre">Cadre</option>
+                <option value="debutant">Débutant</option>
+
+            </select>
+
+            <button type="submit"
+                    style="background:#176B87; color:white; padding:12px 22px; border:0; border-radius:8px; cursor:pointer;">
+                Mettre à jour mon CV
+            </button>
+
+        </form>
+
+    </section>
+
+</div>
+
+{% endblock %}
