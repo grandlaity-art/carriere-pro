@@ -452,7 +452,53 @@
             Générer mon CV professionnel
         </button>
 
+    </form <section class="bloc" style="margin-top:30px;">
+    <h2>Mettre à jour mon CV</h2>
+
+    <p>
+        Importez votre ancien CV en PDF ou en photo pour améliorer
+        sa présentation et sa formulation.
+    </p>
+
+    <form method="POST"
+          action="{{ url_for('mettre_a_jour_cv') }}"
+          enctype="multipart/form-data">
+
+        <div class="champ">
+            <label class="champ-label" for="ancien_cv">
+                Importer votre ancien CV
+            </label>
+
+            <input
+                type="file"
+                id="ancien_cv"
+                name="ancien_cv"
+                accept=".pdf,.jpg,.jpeg,.png,.webp"
+                required
+            >
+        </div>
+
+        <div class="champ">
+            <label class="champ-label" for="modele_mise_a_jour">
+                Choisir un modèle
+            </label>
+
+            <select id="modele_mise_a_jour" name="modele">
+                <option value="classique">Classique</option>
+                <option value="moderne">Moderne</option>
+                <option value="elegant">Élégant</option>
+                <option value="creatif">Créatif</option>
+                <option value="cadre">Cadre</option>
+                <option value="debutant">Débutant</option>
+            </select>
+        </div>
+
+        <button type="submit" class="bouton">
+            Mettre à jour mon CV
+        </button>
+
     </form>
+</section>
 
     <a href="/" class="retour">← Retour à l'accueil</a>
 
